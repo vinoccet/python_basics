@@ -1,0 +1,1041 @@
+How Python Works
+Python is an interpreted language, which means its code is executed line by line by a program called an interpreter, rather than being fully compiled into machine code before runtime like languages such as C++ or Java. 
+Interpretation Process: When you run a Python program, the interpreter reads the source code, translates each line into an intermediate format called bytecode, and then executes that bytecode.
+Rapid Development Cycle: This interpretation process enables a fast edit-test-debug cycle, as changes to the code can be run immediately without a time-consuming compilation step.
+Dynamic Typing: Python uses dynamic typing, meaning you don't need to declare the variable types in the code (e.g., x = 10 instead of int x = 10). The interpreter determines the types at runtime, contributing to shorter and more flexible code.
+Indentation-based Syntax: Python uses whitespace indentation to define code blocks (e.g., inside functions or loops), unlike other languages that often use curly brackets. This enforces a clean, consistent coding style and improves readability. 
+Why Python Is So Important
+Python's importance lies in its ability to be used across a wide range of applications and its developer-friendly features. 
+Versatility: It's a general-purpose language used in everything from web development to scientific research. This means a Python developer can work in diverse industries.
+Ease of Learning: Its simple, readable syntax, which mimics natural language, makes it the language of choice for beginners, educational institutions, and non-programmers (like data scientists or accountants).
+Extensive Libraries and Frameworks: Python has a vast standard library and a massive ecosystem of third-party packages (available on the Python Package Index (PyPI)) that provide pre-written code for almost any task.
+Data Science & Machine Learning: Libraries like NumPy, Pandas, TensorFlow, and PyTorch have made Python the leading language in data analysis, AI, and machine learning.
+Web Development: Frameworks such as Django and Flask simplify the creation of robust, scalable web applications.
+Automation: Python is widely used for scripting and automating repetitive tasks, such as file management or sending emails.
+Large and Supportive Community: A large, active community means extensive documentation, numerous tutorials, and quick help when problems arise.
+Cross-Platform Compatibility: Python code runs seamlessly on most major operating systems, including Windows, macOS, and Linux, without requiring significant modifications.
+High Demand and Career Opportunities: The widespread adoption of Python across tech giants like Google and Netflix ensures a high demand for skilled Python developers in the job market, often commanding competitive salaries. 
+
+python:
+python installation
+setting
+ tree indent
+
+interactive:
+pip install ipykernel
+
+virtual env:
+ problem with sharing:
+imagine you are working on 2 projects
+ project A needs 1.0 version of a tool
+ project B needs 2.0 version of a tool
+
+if you install 2.0 version of a tool for project B then project A broke.
+This is where virtual env saves the day!!!
+Uderstanding packages:
+Packages are prewritten code that others have created for us to use. instaed of writing everything from scratch
+ requests - for downloading webpages
+ pandas - for working with data
+ openai -  for using AI models
+
+how to create venv:
+python -m venv .venv
+
+datatypes:
+numbers : 2 types
+
+open vs code settings:
+jupyter>interactive window>Text Editor: Execution Selection
+
+basic math operations
+--------------------------------------------------------
+What are strings?
+Strings are text - any characters inside quotes. Python doesn’t care if you use single or double quotes, just be consistent.
+name = "Alice"
+message = 'Hello, World!'
+​
+Creating strings
+Three ways to make strings:
+# Single quotes
+first = 'Python'
+
+# Double quotes  
+second = "Python"
+
+# Triple quotes for multiple lines
+paragraph = """This is
+a multi-line
+string"""
+Use double quotes when your text contains apostrophes: "It's Python!"
+​
+Combining strings
+Join strings together with +:
+first_name = "John"
+last_name = "Doe"
+
+# Concatenation
+full_name = first_name + " " + last_name
+print(full_name)  # John Doe
+
+# Repetition
+stars = "*" * 5
+print(stars)  # *****
+​
+String length
+Use len() to count characters:
+message = "Hello"
+print(len(message))  # 5
+
+empty = ""
+print(len(empty))    # 0
+​
+Converting to string
+Turn other types into strings with str():
+age = 25
+message = "I am " + str(age) + " years old"
+print(message)  # I am 25 years old
+
+# Or use f-strings (we'll learn more later)
+message = f"I am {age} years old"
+
+-----------------------------------------------------------------
+Booleans
+True and False values for decisions
+
+​
+What are booleans?
+Booleans are the simplest data type - they can only be True or False. Think of them as yes/no answers.
+is_logged_in = True
+is_admin = False
+has_permission = True
+Boolean values are True and False with capital letters. Using true or false will cause an error!
+​
+Creating booleans
+Booleans often come from comparisons:
+# Direct assignment
+is_ready = True
+
+# From comparisons
+age = 18
+can_vote = age >= 18  # True
+
+score = 75
+passed = score > 60   # True
+​
+Comparison operators
+These operators compare values and return True or False:
+age = 25
+
+# Equality
+print(age == 25)     # True - equals
+print(age != 30)     # True - not equals
+
+# Greater/Less than
+print(age > 20)      # True - greater than
+print(age < 30)      # True - less than
+print(age >= 25)     # True - greater or equal
+print(age <= 25)     # True - less or equal
+Remember: = assigns a value, while == compares values. This is a common source of bugs!
+
+------------------------------------------------------------------
+Operators
+Math, comparisons, and logic in Python
+
+​
+What are operators?
+Operators are symbols that perform operations on values. Think of them as the “verbs” of programming - they make things happen!
+You already know most operators from math class:
+Calculate: +, -, *, /
+Compare: >, <, ==
+Combine: and, or, not
+​
+Arithmetic operators
+These work just like your calculator:
+# Basic math
+print(10 + 3)   # 13 - Addition
+print(10 - 3)   # 7  - Subtraction
+print(10 * 3)   # 30 - Multiplication
+print(10 / 3)   # 3.333... - Division (always gives float)
+
+# Special operators
+print(10 // 3)  # 3  - Floor division (rounds down)
+print(10 % 3)   # 1  - Modulo (remainder)
+print(10 ** 3)  # 1000 - Exponent (power)
+​
+Order of operations
+Python follows math rules (PEMDAS):
+result = 2 + 3 * 4      # 14 (not 20!)
+result = (2 + 3) * 4    # 20 (parentheses first)
+​
+Comparison operators
+These compare values and return True or False:
+age = 18
+
+print(age == 18)    # True  - Equal to
+print(age != 21)    # True  - Not equal to
+print(age > 17)     # True  - Greater than
+print(age < 20)     # True  - Less than
+print(age >= 18)    # True  - Greater than or equal
+print(age <= 18)    # True  - Less than or equal
+Don’t confuse = (assignment) with == (comparison)!
+age = 18 stores 18 in age
+age == 18 checks if age equals 18
+​
+Logical operators
+These combine boolean values and conditions:
+age = 25
+has_license = True
+
+# AND - both must be true
+can_drive = age >= 16 and has_license
+print(can_drive)  # True
+
+# OR - at least one must be true
+day = "Saturday"
+is_weekend = day == "Saturday" or day == "Sunday"
+print(is_weekend)  # True
+
+# NOT - reverses the value
+is_adult = age >= 18
+is_child = not is_adult
+print(is_child)  # False
+​
+Truth tables
+Understanding how and, or, and not work:
+# AND: Both must be True
+print(True and True)    # True
+print(True and False)   # False
+print(False and False)  # False
+
+# OR: At least one must be True  
+print(True or False)    # True
+print(False or False)   # False
+
+# NOT: Flips the value
+print(not True)         # False
+print(not False)        # True
+​
+Assignment shortcuts
+These shortcuts update variables in place:
+# Instead of:
+score = score + 10
+
+# Write:
+score += 10
+
+# Works with all operators
+x = 10
+x += 5    # x is now 15
+x *= 2    # x is now 30
+
+----------------------------------------------------------------------
+String manipulation
+Advanced text operations
+
+​
+Working with text
+Now that you know what strings are, let’s learn how to manipulate them. Python gives you powerful tools to work with text.
+​
+String operations
+​
+Concatenation (joining)
+first_name = "Jane"
+last_name = "Doe"
+
+# Using +
+full_name = first_name + " " + last_name  # "Jane Doe"
+
+# Using f-strings (modern Python way!)
+greeting = f"Hello, {first_name}!"  # "Hello, Jane!"
+
+# Multiple variables
+age = 25
+intro = f"I'm {first_name} and I'm {age} years old"
+​
+Repetition
+star = "*"
+stars = star * 10  # "**********"
+
+separator = "-" * 20  # "--------------------"
+​
+String methods
+Python strings come with many built-in methods - functions you can call directly on any string. These methods let you transform text, search for patterns, and clean up data. The best part? You can often guess what they do from their names - upper() makes text uppercase, replace() replaces text, and so on.
+​
+Changing case
+text = "Python Programming"
+
+print(text.lower())      # "python programming"
+print(text.upper())      # "PYTHON PROGRAMMING"
+print(text.title())      # "Python Programming"
+​
+Cleaning strings
+messy = "  hello world  "
+print(messy.strip())     # "hello world" (removes whitespace)
+
+price = "$19.99"
+print(price.strip("$"))  # "19.99"
+​
+Finding and replacing
+message = "I love Python programming with Python"
+
+# Check if something exists
+print("Python" in message)        # True
+print(message.startswith("I"))   # True
+print(message.endswith("Python")) # True
+
+# Find position
+print(message.find("Python"))     # 7 (first occurrence)
+print(message.count("Python"))    # 2 (number of times)
+
+# Replace
+new_message = message.replace("Python", "JavaScript")
+print(new_message)  # "I love JavaScript programming with JavaScript"
+
+----------------------------------------------------------------------------------
+If statements
+Make decisions in your code
+
+​
+What are if statements?
+If statements let your program make decisions. They check if something is true or false, then act accordingly.
+Real-life logic:
+IF it’s raining THEN take umbrella
+IF battery < 20% THEN charge phone
+IF password correct THEN allow access
+​
+Basic if statement
+age = 18
+
+if condition:
+   stateent1
+   statement2
+stement3
+
+if age >= 18:
+    print("You can vote!")
+    print("You're an adult")
+How it works:
+Check the condition (age >= 18)
+If True, run the indented code
+If False, skip it
+The colon : and indentation are required! This is how Python knows what code belongs to the if statement.
+​
+If-else statements
+Handle both True and False cases:
+temperature = 25
+
+if temperature > 30:
+    print("It's hot!")
+else:
+    print("Nice weather!")
+​
+If-elif-else chains
+For multiple conditions:
+score = 85
+
+if score >= 90:
+    print("A - Excellent!")
+elif score >= 80:
+    print("B - Good job!")
+elif score >= 70:
+    print("C - Keep it up!")
+else:
+    print("F - Need improvement")
+Python checks each condition in order and runs the first True one.
+Why elif instead of multiple if statements? With elif, Python stops checking once it finds a true condition. This is more efficient and prevents multiple blocks from running. The order matters - always put more specific conditions first!
+​
+Multiple conditions
+Combine conditions with and, or, not:
+age = 25
+has_license = True
+
+# Both must be True
+if age >= 18 and has_license:
+    print("You can drive!")
+
+# At least one must be True
+if weekend or holiday:
+    print("No work today!")
+
+# Reverse the condition
+if not raining:
+    print("Let's go outside!")
+​
+Nested if statements
+Put if statements inside other if statements:
+has_ticket = True
+age = 15
+
+if has_ticket:
+    if age >= 18:
+        print("Enjoy the movie!")
+    else:
+        print("Need adult supervision")
+else:
+    print("Buy a ticket first")
+​-----------------------------------------------------
+Loops
+Repeat code multiple times
+
+​
+What are loops?
+Loops let you repeat code without writing it multiple times. Instead of copying and pasting, you tell Python to repeat the code for you.
+Without loops:
+print("Hello!")
+print("Hello!")
+print("Hello!")
+print("Hello!")
+print("Hello!")
+With loops:
+for i in range(5):
+    print("Hello!")
+Both do the same thing, but the loop is much cleaner!
+​
+For loops
+The for loop is the most common loop in Python. Let’s start simple:
+​
+Repeat a specific number of times
+# Print numbers 0 through 4
+for i in range(5):
+    print(i)
+
+# Output:
+# 0
+# 1
+# 2
+# 3
+# 4
+Python starts counting at 0, not 1. This is called “zero-indexing”. So range(5) gives you 0, 1, 2, 3, 4 (five numbers total).
+​
+Count from different starting points
+# Count from 1 to 5
+for i in range(1, 6):
+    print(i)
+# Output: 1, 2, 3, 4, 5
+
+# Count by 2s
+for i in range(0, 10, 2):
+    print(i)
+# Output: 0, 2, 4, 6, 8
+​
+Loop through text
+You can loop through each character in a string:
+name = "Python"
+for letter in name:
+    print(letter)
+
+# Output:
+# P
+# y
+# t
+# h
+# o
+# n
+​
+Loop through a list (preview)
+We’ll learn more about lists later, but here’s a preview:
+colors = ["red", "blue", "green"]
+for color in colors:
+    print(f"I like {color}")
+
+# Output:
+# I like red
+# I like blue
+# I like green
+​
+While loops
+A while loop continues as long as a condition is true:
+count = 0
+while count < 5:
+    print(f"Count is {count}")
+    count = count + 1  # Increase count by 1
+
+# Output:
+# Count is 0
+# Count is 1
+# Count is 2
+# Count is 3
+# Count is 4
+Always make sure your while loop will eventually stop! If you forget to update the variable, it will run forever.
+​
+-------------------------------------------------------
+Data structures
+Store multiple values together
+
+​
+Beyond single values
+So far, you’ve stored one value per variable. But what if you need to store multiple values? That’s where data structures come in.
+Think of data structures as containers:
+Lists: Like a shopping list (ordered items)
+Dictionaries: Like a phone book (name > number)
+Tuples: Like coordinates (fixed values)
+Sets: Like a bag of unique items
+​
+----------------------------------
+Lists
+Work with ordered collections
+
+​
+What are lists?
+Lists are Python’s most versatile data structure. They’re like containers that can hold multiple items in a specific order.
+Think of a list like:
+A shopping list (milk, eggs, bread)
+A to-do list (tasks in order)
+A playlist (songs in sequence)
+​
+Creating lists
+# Empty list
+my_list = []
+
+# List with items
+fruits = ["apple", "banana", "orange"]
+numbers = [1, 2, 3, 4, 5]
+mixed = ["hello", 42, True, 3.14]  # Different types OK!
+Lists use square brackets [] and items are separated by commas. You can mix different data types in the same list!
+​
+Accessing items
+Lists are indexed starting at 0:
+fruits = ["apple", "banana", "orange"]
+
+# Get items
+print(fruits[0])    # "apple" (first item)
+print(fruits[1])    # "banana"
+print(fruits[-1])   # "orange" (last item)
+print(fruits[-2])   # "banana" (second to last)
+
+# Slicing
+print(fruits[0:2])  # ["apple", "banana"]
+print(fruits[1:])   # ["banana", "orange"]
+​
+Changing lists
+Lists are mutable - you can change them:
+fruits = ["apple", "banana", "orange"]
+
+# Change an item
+fruits[0] = "mango"
+print(fruits)  # ["mango", "banana", "orange"]
+
+# Add items
+fruits.append("grape")      # Add to end
+fruits.insert(1, "kiwi")    # Insert at position
+
+# Remove items
+fruits.remove("banana")     # Remove by value
+last = fruits.pop()        # Remove and return last
+del fruits[0]              # Remove by index
+​
+List methods
+numbers = [3, 1, 4, 1, 5, 9]
+
+# Information
+print(len(numbers))         # 6 (length)
+print(numbers.count(1))     # 2 (count occurrences)
+print(numbers.index(4))     # 2 (find position)
+
+# Sorting
+numbers.sort()              # Sort in place
+print(numbers)              # [1, 1, 3, 4, 5, 9]
+
+numbers.reverse()           # Reverse order
+print(numbers)              # [9, 5, 4, 3, 1, 1]
+
+# Copy
+new_list = numbers.copy()   # Create a copy
+​
+Checking lists
+fruits = ["apple", "banana", "orange"]
+
+# Check if item exists
+if "apple" in fruits:
+    print("Found apple!")
+
+# Check if list is empty
+if fruits:
+    print("List has items")
+else:
+    print("List is empty")
+​
+-----------------------------------------
+Dictionaries
+Store data with key-value pairs
+
+​
+What are dictionaries?
+Dictionaries store data in key-value pairs. Think of them like a real dictionary where you look up a word (key) to find its definition (value).
+Real-world examples:
+Phone book: name > phone number
+Menu: dish > price
+User profile: username > user info
+​
+Creating dictionaries
+# Empty dictionary
+my_dict = {}
+
+# Dictionary with data
+person = {
+    "name": "Alice",
+    "age": 30,
+    "city": "New York"
+}
+
+# Different ways to create
+scores = dict(math=95, english=87, science=92)
+Dictionaries use curly braces {} with key-value pairs separated by colons. Keys must be unique!
+​
+Accessing values
+person = {"name": "Alice", "age": 30, "city": "New York"}
+
+# Get values by key
+print(person["name"])       # "Alice"
+print(person["age"])        # 30
+
+# Safer with get()
+print(person.get("job"))    # None (no error)
+print(person.get("job", "Unknown"))  # "Unknown" (default)
+​
+Changing dictionaries
+person = {"name": "Alice", "age": 30}
+
+# Add or update
+person["email"] = "alice@email.com"  # Add new
+person["age"] = 31                   # Update existing
+
+# Remove items
+del person["email"]              # Remove by key
+age = person.pop("age")          # Remove and return
+person.clear()                   # Remove all items
+​
+Dictionary methods
+person = {"name": "Alice", "age": 30, "city": "New York"}
+
+# Get all keys, values, or items
+print(person.keys())    # dict_keys(['name', 'age', 'city'])
+print(person.values())  # dict_values(['Alice', 30, 'New York'])
+print(person.items())   # dict_items([('name', 'Alice'), ...])
+
+# Check if key exists
+if "name" in person:
+    print("Name found!")
+
+# Update multiple values
+person.update({"age": 31, "job": "Engineer"})
+​
+Nested dictionaries
+# Dictionary of dictionaries
+students = {
+    "alice": {"age": 20, "grade": "A"},
+    "bob": {"age": 21, "grade": "B"},
+    "charlie": {"age": 19, "grade": "A"}
+}
+
+# Access nested data
+print(students["alice"]["grade"])  # "A"
+​
+----------------------------------------------------------
+Tuples
+Work with immutable sequences
+
+​
+What are tuples?
+Tuples are like lists, but they can’t be changed once created. They’re immutable (unchangeable) sequences.
+Use tuples for data that shouldn’t change:
+Coordinates (x, y)
+RGB colors (255, 0, 0)
+Database records
+Function return values
+​
+Creating tuples
+# Empty tuple
+empty = ()
+
+# Tuple with items
+point = (3, 5)
+colors = ("red", "green", "blue")
+
+# Single item tuple needs comma!
+single = (42,)  # Note the comma
+not_tuple = (42)  # This is just 42 in parentheses
+
+# Without parentheses (implicit)
+coordinates = 10, 20
+A single-item tuple needs a comma: (42,) not (42). Without the comma, Python thinks it’s just parentheses around a number!
+​
+Accessing items
+Just like lists, tuples use indexing:
+point = (3, 5)
+colors = ("red", "green", "blue")
+
+# Get items
+print(point[0])      # 3
+print(colors[-1])    # "blue"
+
+# Slicing works too
+print(colors[0:2])   # ("red", "green")
+​
+Tuple unpacking
+Python’s coolest tuple feature:
+# Unpack values
+point = (3, 5)
+x, y = point  # x = 3, y = 5
+
+# Multiple assignment
+a, b, c = 1, 2, 3  # Same as (1, 2, 3)
+
+# Swap variables elegantly
+x, y = y, x  # Swaps values!
+
+--------------------------------------------
+Sets
+Work with unique collections
+
+​
+What are sets?
+Sets are collections that only store unique values. They automatically remove duplicates.
+Think of sets like:
+A bag of unique marbles
+Guest list (each person once)
+Unique tags or categories
+​
+Creating sets
+You can create sets two ways: with set() or with curly braces {} (but only when it has values).
+# Empty set (careful!)
+empty_set = set()  # NOT {} - that's a dict!
+
+# Set with values - both ways work
+numbers = {1, 2, 3, 4, 5}
+fruits = set(["apple", "banana", "orange"])
+
+# From a list (removes duplicates)
+scores = [85, 90, 85, 92, 90]
+unique_scores = set(scores)  # {85, 90, 92}
+Use set() for empty sets, not {}. Empty curly braces create a dictionary!
+​
+Basic operations
+colors = {"red", "blue"}
+
+# Add items
+colors.add("green")
+print(colors)  # {'red', 'blue', 'green'}
+
+# Remove items
+colors.remove("blue")    # Error if not found
+colors.discard("yellow") # No error if not found
+
+# Check membership
+if "red" in colors:
+    print("Red is available")
+​
+Common uses
+​
+Remove duplicates
+names = ["Alice", "Bob", "Alice", "Charlie", "Bob"]
+unique_names = list(set(names))
+print(unique_names)  # ['Alice', 'Bob', 'Charlie']
+​
+Fast membership testing
+allowed_users = {"alice", "bob", "charlie"}
+
+if "alice" in allowed_users:  # Very fast!
+    print("Access granted")
+​----------------------------------------------------------------
+
+Functions
+Create reusable blocks of code
+
+​
+Building with functions
+Functions are reusable blocks of code that do specific tasks. Instead of writing the same code multiple times, you write it once as a function and call it whenever needed.
+Think of functions like:
+A recipe you can follow multiple times
+A machine that takes input and produces output
+A named shortcut for complex operations
+​
+Why use functions?
+Don’t repeat yourself: Write code once, use it many times
+Stay organized: Break complex programs into smaller pieces
+Fix bugs easier: Change code in one place, affects everywhere
+Test your code: Test each function separately
+-----------------------------------------------------------
+Defining functions
+Create your own reusable functions
+
+​
+Your first function
+A function is a named block of code that performs a specific task. You define it once, then call it whenever you need that task done.
+def greet():
+    print("Hello, world!")
+    print("Welcome to Python!")
+
+# Call the function
+greet()
+​
+Function syntax
+Every function follows this pattern:
+def function_name():
+    # Code goes here
+    # Must be indented
+    pass
+Key parts:
+def - keyword that creates a function
+Function name followed by parentheses ()
+Colon : to start the function body
+Indented code block (the function body)
+​
+Naming functions
+Follow these rules for function names:
+Use lowercase letters
+Separate words with underscores
+Be descriptive about what it does
+# Good names
+def calculate_total():
+    pass
+
+def send_email():
+    pass
+
+def validate_password():
+    pass
+
+# Bad names
+def func1():  # Not descriptive
+    pass
+
+def Calculate():  # Should be lowercase
+    pass
+​
+Calling functions
+To use a function, call it by name with parentheses:
+def say_goodbye():
+    print("Goodbye!")
+    print("See you later!")
+
+# Call it multiple times
+say_goodbye()
+say_goodbye()
+say_goodbye()
+The power of functions: write once, use many times. The above code prints 6 lines with just 3 function calls!
+​
+Functions with logic
+Functions can contain any Python code:
+def check_weather():
+    temperature = 25
+    if temperature > 30:
+        print("It's hot!")
+    else:
+        print("Nice weather!")
+
+# Use the function
+check_weather()
+​
+Variable scope: Local vs Global
+Variables in Python have a “scope” - where they can be accessed and used.
+​
+Local variables
+Variables created inside a function only exist within that function:
+def calculate_price():
+    price = 100
+    tax = price * 0.1
+    print(f"Total: {price + tax}")
+
+calculate_price()  # Total: 110
+
+# This fails - price doesn't exist outside the function
+print(price)  # NameError: name 'price' is not defined
+​
+Global variables
+Variables created outside functions can be accessed anywhere:
+discount_rate = 0.15  # Global variable
+
+def apply_discount(price):
+    discount = price * discount_rate  # Can read global variable
+    return price - discount
+
+result = apply_discount(100)
+print(result)  # 85.0
+​
+Modifying global variables
+To change a global variable inside a function, use the global keyword:
+counter = 0  # Global variable
+
+def increment():
+    global counter  # Declare we want to modify the global variable
+    counter += 1
+
+increment()
+increment()
+print(counter)  # 2
+Avoid using global when possible. It makes code harder to understand and debug. Instead, pass values as parameters and return results.
+​
+Best practice: Use parameters and returns
+# Bad - using global variable
+total = 0
+
+def add_to_total(amount):
+    global total
+    total += amount
+
+# Good - using parameters and return
+def add_amounts(current_total, amount):
+    return current_total + amount
+
+total = 0
+total = add_amounts(total, 10)
+total = add_amounts(total, 20)
+print(total)  # 30
+When a local and global variable have the same name, the local variable “shadows” the global one inside the function. Python always uses the local version first.
+​
+-------------------------------------------------------------
+
+Parameters
+Pass data into your functions
+
+​
+What are parameters?
+Parameters let you pass data into functions. Instead of hardcoding values, you make functions flexible to work with different inputs.
+# Without parameters (inflexible)
+def greet_alice():
+    print("Hello, Alice!")
+
+# With parameters (flexible)
+def greet(name):
+    print(f"Hello, {name}!")
+
+# Now it works for anyone
+greet("Alice")
+greet("Bob")
+greet("Charlie")
+​
+Basic parameters
+Add parameters inside the parentheses when defining a function:
+def introduce(name, age):
+    print(f"My name is {name}")
+    print(f"I am {age} years old")
+
+# Call with values
+introduce("Alice", 25)
+introduce("Bob", 30)
+The values you pass when calling a function are called “arguments”. The variables in the function definition are “parameters”. Many people use these terms interchangeably.
+​
+Multiple parameters
+Functions can have multiple parameters:
+def calculate_total(price, tax_rate, discount):
+    tax = price * tax_rate
+    final_price = price + tax - discount
+    print(f"Total: ${final_price}")
+
+# Order matters!
+calculate_total(100, 0.08, 10)  # $98
+​
+Default values
+Give parameters default values for optional arguments:
+def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+# Use default
+greet("Alice")           # Hello, Alice!
+
+# Override default
+greet("Bob", "Hi")       # Hi, Bob!
+greet("Charlie", "Hey")  # Hey, Charlie!
+Put parameters with defaults at the end. Required parameters come first, optional ones last.
+​
+Keyword arguments
+Call functions using parameter names for clarity:
+def create_profile(name, age, city):
+    print(f"{name}, {age}, from {city}")
+
+# Positional arguments (order matters)
+create_profile("Alice", 25, "NYC")
+
+# Keyword arguments (order doesn't matter)
+create_profile(city="NYC", age=25, name="Alice")
+create_profile(name="Bob", city="LA", age=30)
+
+----------------------------------------------------------
+Return values
+Get results back from your functions
+
+​
+Getting results from functions
+So far, our functions have printed output. But often you want functions to calculate something and give you the result to use elsewhere.
+# This function only prints
+def add_print(a, b):
+    print(a + b)
+
+# This function returns a value
+def add_return(a, b):
+    return a + b
+
+# Now you can use the result
+result = add_return(5, 3)
+print(f"The result is {result}")  # The result is 8
+​
+The return statement
+Use return to send a value back from a function:
+def calculate_area(width, height):
+    area = width * height
+    return area
+
+# Store the returned value
+room_area = calculate_area(10, 12)
+print(f"Room size: {room_area} sq ft")  # Room size: 120 sq ft
+When Python hits a return statement, it immediately exits the function. Any code after return won’t run.
+​
+Using returned values
+Returned values can be used in many ways:
+def double(number):
+    return number * 2
+
+# Store in variable
+result = double(5)
+
+# Use in expressions
+total = double(5) + double(3)  # 10 + 6 = 16
+
+# Pass to other functions
+print(double(10))  # 20
+
+# Use in conditions
+if double(7) > 10:
+    print("Big number!")
+​
+Returning multiple values
+Python can return multiple values as a tuple:
+def get_min_max(numbers):
+    return min(numbers), max(numbers)
+
+# Get both values
+minimum, maximum = get_min_max([5, 2, 8, 1, 9])
+print(f"Min: {minimum}, Max: {maximum}")  # Min: 1, Max: 9
+
+# Or as a tuple
+result = get_min_max([5, 2, 8, 1, 9])
+print(result)  # (1, 9)
+​
+Return vs print
+Understanding the difference is crucial:
+def get_greeting_print(name):
+    print(f"Hello, {name}!")  # Just displays
+
+def get_greeting_return(name):
+    return f"Hello, {name}!"  # Gives back value
+
+# Can't use print version's output
+message = get_greeting_print("Alice")  # Prints but returns None
+print(message)  # None
+
+# Can use return version's output
+message = get_greeting_return("Alice")  # Returns the string
+print(message.upper())  # HELLO, ALICE!
+Use return when you need to use the result elsewhere. Use print when you just want to display information.
+​
+Functions without return
+Functions without explicit return statements return None:
+def greet(name):
+    print(f"Hello, {name}!")
+    # No return statement
+
+result = greet("Alice")  # Prints: Hello, Alice!
+print(result)  # None
+
+--------------------------------------------------------------
