@@ -18,6 +18,7 @@ class Bank:
             print(f"balance after withdrawal {self.__balance}")
         else:
             raise AttributeError(f"check your balance before withdraw {self.__balance}")    
+    @staticmethod
     def is_valid_interest_rate(interest_rate):
         return interest_rate>0 and interest_rate<5
 
